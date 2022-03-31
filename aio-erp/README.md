@@ -1,17 +1,23 @@
-# All-in-One : Axelor ERP
+# AATech All-in-One : Axelor ERP
 
-The Dockerfile to build All-in-One docker image of Axelor ERP.
+The Dockerfile to build All-in-One docker image of Axelor ERP from AATech repositories
 
 ## Build Image
 
 ```sh
-$ docker build -t axelor/aio-erp .
+$ docker build -t aatech/aio-erp .
 ```
 
 ## Run app container
 
 ```sh
-$ docker run -it -p 8080:80 axelor/aio-erp
+$ docker run -it -p 80:80 aatech/aio-erp
+```
+
+**persistent data volume**
+```sh
+//  note : binding Tomcat will cause error currently so only bind postgresql
+$ docker run -it -v /root/axelor-volume/lib/postgresql:/var/lib/postgresql -p 80:80 aatech/aio-erp
 ```
 
 ## Run with SSL
